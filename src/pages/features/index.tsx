@@ -42,7 +42,7 @@ const features: CardProps[] = [
 	},
 ]
 
-export default function Features(): JSX.Element {
+export default function Features() {
 	return (
 		<Layout title="Features" description="List of Yazi's features.">
 			<main className="margin-vert--lg">
