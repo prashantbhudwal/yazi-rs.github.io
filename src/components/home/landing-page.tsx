@@ -74,7 +74,7 @@ function Header() {
 			<div className="flex w-full items-center justify-between px-8 py-3 lg:px-12">
 				{/* Logo - left */}
 				<div className="flex items-center gap-2">
-					<img src="/webp/logo.webp" alt="Yazi" className="h-8 w-8 rounded-md" />
+					<img src="webp/logo.webp" alt="Yazi" className="h-8 w-8 rounded-md" />
 					<span className="text-sm font-semibold tracking-wide">Yazi</span>
 				</div>
 
@@ -139,7 +139,7 @@ function HeroSection() {
 			<div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-16 pt-8 lg:pb-20 lg:pt-12 2xl:max-w-7xl">
 				{/* Centered Hero Content */}
 				<div className="mx-auto flex w-full flex-col items-center gap-6 text-center px-4">
-					<img src="/webp/logo.webp" alt="Yazi" className="h-16 w-16  sm:h-20 sm:w-20" />
+					<img src="webp/logo.webp" alt="Yazi" className="h-16 w-16  sm:h-20 sm:w-20" />
 					<h1 className="text-balance text-6xl tracking-tight sm:text-7xl lg:text-8xl 2xl:text-9xl">
 						{siteConfig.title}
 					</h1>
@@ -289,7 +289,7 @@ function FooterBrand() {
 	return (
 		<div className="space-y-3">
 			<div className="flex items-center gap-2">
-				<img src="/webp/logo.webp" alt="Yazi" className="h-7 w-7 rounded-md" />
+				<img src="webp/logo.webp" alt="Yazi" className="h-7 w-7 rounded-md" />
 				<span className="font-semibold">Yazi</span>
 			</div>
 			<p className="mb-0 text-sm text-muted-foreground">A blazing fast terminal file manager built in Rust.</p>
