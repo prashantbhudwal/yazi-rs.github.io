@@ -159,7 +159,7 @@ function HeroSection() {
 					<div className="relative">
 						<Card className="relative overflow-hidden rounded-lg border-border/50 bg-card/80 py-0">
 							<video
-								src="/videos/scrollable-preview.mp4"
+								src="videos/scrollable-preview.mp4"
 								className="aspect-video w-full object-cover"
 								autoPlay
 								loop
