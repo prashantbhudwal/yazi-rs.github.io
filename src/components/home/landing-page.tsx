@@ -23,7 +23,6 @@ const leftNavItems: NavItem[] = [
 ]
 
 const rightNavItems: NavItem[] = [
-	{ label: "nightly", to: "/docs/installation" },
 	{ label: "GitHub", to: "https://github.com/sxyazi/yazi" },
 ]
 
