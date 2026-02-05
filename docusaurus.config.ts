@@ -11,8 +11,9 @@ const config: Config = {
 	url: "https://yazi-rs.github.io",
 	baseUrl: "/",
 
-	organizationName: "yazi-rs",
+	organizationName: "prashantbhudwal",
 	projectName: "yazi-rs.github.io",
+	deploymentBranch: "gh-pages",
 
 	onBrokenLinks: "throw",
 
