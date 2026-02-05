@@ -1,6 +1,7 @@
 import { themes as prismThemes } from "prism-react-renderer"
 import type { Config } from "@docusaurus/types"
 import type * as Preset from "@docusaurus/preset-classic"
+import tailwindcss from "@tailwindcss/postcss"
 
 const config: Config = {
 	title: "Yazi",
@@ -42,10 +43,21 @@ const config: Config = {
 					editUrl: "https://github.com/yazi-rs/yazi-rs.github.io/edit/main/",
 				},
 				theme: {
-					customCss: "./src/css/custom.css",
+					customCss: "./src/index.css",
 				},
 			} satisfies Preset.Options,
 		],
+	],
+	plugins: [
+		function tailwindPlugin() {
+			return {
+				name: "docusaurus-tailwindcss",
+				configurePostCss(postcssOptions) {
+					postcssOptions.plugins.push(tailwindcss)
+					return postcssOptions
+				},
+			}
+		},
 	],
 
 	themeConfig: {
