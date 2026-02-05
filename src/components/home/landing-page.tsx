@@ -1,15 +1,45 @@
 import Link from "@docusaurus/Link"
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
 import { useColorMode } from "@docusaurus/theme-common"
-import { ArrowRight, Menu, Moon, Sparkles, Sun, X } from "@hugeicons/core-free-icons"
+import { ArrowRight, ArrowUpRight, Menu, Moon, Search, Sparkles, Sun, X } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { useState } from "react"
 
+import SearchBar from "@theme/SearchBar"
 import { cardsData, landingFeatures } from "@site/src/components/home/landing-data"
 import { Badge } from "@site/src/components/ui/badge"
 import { Button } from "@site/src/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@site/src/components/ui/card"
 import { cn } from "@site/src/lib/utils"
+
+function SearchButton(): React.ReactNode {
+	return (
+		<div className="relative flex items-center">
+			<div className="sr-only">
+				<SearchBar />
+			</div>
+			<Button
+				variant="ghost"
+				size="sm"
+				className={cn(
+					"h-8 gap-1.5 px-3 text-muted-foreground hover:text-foreground",
+					"border border-border/80 bg-background/30",
+					"rounded-full items-center"
+				)}
+				onClick={() => {
+					(document.querySelector(".DocSearch-Button") as HTMLElement | null)?.click()
+				}}
+			>
+				<HugeiconsIcon icon={Search} className="h-4 w-4" />
+				<span className="hidden lg:inline text-sm font-medium">Search</span>
+				<span className="hidden lg:inline-flex items-center gap-0.5 text-xs font-bold text-foreground/90 ml-1">
+					<span>⌘</span>
+					<span>K</span>
+				</span>
+			</Button>
+		</div>
+	)
+}
 
 type NavItem = {
 	label: string
@@ -70,30 +100,41 @@ function Header() {
 
 	return (
 		<header className="sticky top-0 z-50">
-			<div className="flex w-full items-center justify-between px-8 py-3 lg:px-12">
-				{/* Logo - left */}
+			<div className="flex w-full items-center justify-between px-2 py-3 lg:px-4">
+				{/* Logo + nav - left */}
 				<div className="flex items-center gap-2">
 					<img src="webp/logo.webp" alt="Yazi" className="h-8 w-8 rounded-md" />
 					<span className="text-sm font-semibold tracking-wide">Yazi</span>
+					<div className="hidden items-center gap-1 md:flex ml-4">
+						{leftNavItems.map(item => (
+							<Button key={item.label} variant="ghost" size="sm" className="text-foreground!" asChild>
+								<Link to={item.to}>{item.label}</Link>
+							</Button>
+						))}
+					</div>
 				</div>
 
-				{/* All nav items - right */}
-				<div className="hidden items-center gap-1 md:flex">
-					{leftNavItems.map(item => (
-						<Button key={item.label} variant="ghost" size="sm" className="text-foreground!" asChild>
-							<Link to={item.to}>{item.label}</Link>
-						</Button>
-					))}
+				{/* Right nav items + actions */}
+				<div className="hidden items-center gap-3 md:flex">
 					{rightNavItems.map(item => (
-						<Button key={item.label} variant="ghost" size="sm" className="text-foreground!" asChild>
-							<Link to={item.to}>{item.label}</Link>
+						<Button key={item.label} variant="ghost" size="sm" className="text-foreground! gap-1" asChild>
+							<Link to={item.to} target="_blank" rel="noopener noreferrer">
+								{item.label}
+								<HugeiconsIcon icon={ArrowUpRight} className="h-3.5 w-3.5" />
+							</Link>
 						</Button>
 					))}
+					<div className="flex items-center">
+						<SearchButton />
+					</div>
 					<ColorModeToggle />
 				</div>
 
 				{/* Mobile menu button */}
-				<div className="flex items-center gap-2 md:hidden">
+				<div className="flex items-center gap-3 md:hidden">
+					<div className="flex items-center">
+						<SearchButton />
+					</div>
 					<ColorModeToggle />
 					<Button
 						variant="ghost"
