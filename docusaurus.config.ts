@@ -9,7 +9,7 @@ const config: Config = {
 	favicon: "webp/logo.webp",
 
 	url: "https://yazi-rs.github.io",
-	baseUrl: "/",
+	baseUrl: "/yazi-rs.github.io/",
 
 	organizationName: "prashantbhudwal",
 	projectName: "yazi-rs.github.io",
