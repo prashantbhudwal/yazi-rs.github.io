@@ -1,16 +1,76 @@
-@layer theme, base, components, utilities;
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/utilities.css" layer(utilities);
+@import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/jetbrains-mono";
 
-@source "../**/*.{js,jsx,ts,tsx,mdx}";
+/* Responsive text utilities - scoped to landing-theme only */
+@media (min-width: 640px) {
+    .landing-theme .sm\:text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+    .landing-theme .sm\:text-3xl {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+    }
+    .landing-theme .sm\:text-4xl {
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+    }
+    .landing-theme .sm\:text-5xl {
+        font-size: 3rem;
+        line-height: 1;
+    }
+    .landing-theme .sm\:text-6xl {
+        font-size: 3.75rem;
+        line-height: 1;
+    }
+    .landing-theme .sm\:text-7xl {
+        font-size: 4.5rem;
+        line-height: 1;
+    }
+}
+@media (min-width: 1024px) {
+    .landing-theme .lg\:text-6xl {
+        font-size: 3.75rem;
+        line-height: 1;
+    }
+    .landing-theme .lg\:text-7xl {
+        font-size: 4.5rem;
+        line-height: 1;
+    }
+    .landing-theme .lg\:text-8xl {
+        font-size: 6rem;
+        line-height: 1;
+    }
+}
+@media (min-width: 1536px) {
+    .landing-theme .\32xl\:text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+    .landing-theme .\32xl\:text-7xl {
+        font-size: 4.5rem;
+        line-height: 1;
+    }
+    .landing-theme .\32xl\:text-8xl {
+        font-size: 6rem;
+        line-height: 1;
+    }
+    .landing-theme .\32xl\:text-9xl {
+        font-size: 8rem;
+        line-height: 1;
+    }
+}
 
 @custom-variant dark (&:is(.dark *, [data-theme="dark"] *));
 
 @theme inline {
     --font-sans: "JetBrains Mono Variable", monospace;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+    --text-8xl: 6rem;
+    --text-9xl: 8rem;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -128,5 +188,15 @@
 
     .landing-theme {
         @apply font-sans bg-background text-foreground;
+    }
+    
+    /* Override Docusaurus Infima heading styles */
+    .landing-theme h1,
+    .landing-theme h2,
+    .landing-theme h3,
+    .landing-theme h4,
+    .landing-theme h5,
+    .landing-theme h6 {
+        font-size: inherit;
     }
 }
